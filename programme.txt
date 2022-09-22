@@ -1,0 +1,54 @@
+PROGRAM Linear Data structure (Algorithm)
+
+
+VARIABLES
+VAR i , j : Integer;
+VAR lengthSet1 , lengthSet2 : Integer;
+VAR set1 : ARRAY_OF INTEGER[lengthSet1];
+VAR set2 : ARRAY_OF INTEGER[lengthSet2];
+
+
+
+
+
+VAR inSet1 : Boolean;
+VAR inSet2 : Boolean;
+VAR sum, sum1, sum2 : Integer;
+
+BEGIN
+    WRITELN("Input the set1 of elements :");
+READLN(set1);
+    
+    WRITELN("Input the set2 of elements :");
+READLN(set2);
+ sum = 0 , sum1 = 0 , sum2 = 0
+
+
+ FOR i FROM 0 TO lengthSet1 - 1 STEP 1 DO
+    FOR j FROM 0 TO lengthSet2 - 1 STEP 1 DO
+     IF set1[i] = set2[j] THEN
+        inSet2 = TRUE
+              BREAK
+                ELSE inSet2 = FALSE
+            END IF
+        IF inSet2 = FALSE THEN
+            sum1 = sum1 + set1[i]
+        ENDIF
+ENDFOR
+
+FOR j FROM 0 TO lengthSet2 - 1 STEP 1 DO
+            FOR i FROM 0 TO lengthSet1 - 1 STEP 1 DO
+    IF set2[j] = set1[i] THEN
+        inSet1 = TRUE
+        ELSE inSet1 = FALSE
+            END IF
+        ENDFOR
+        IF inSet1 = FALSE THEN
+            sum2 = sum2 + set2[j]
+        ENDIF
+    ENDFOR
+
+    sum = sum1 + sum2
+ WRITELN("The sum of all distinct elements is :" + sum)
+
+END
